@@ -1,10 +1,8 @@
 import requests
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup as BS
 url = 'https://us.battle.net/forums/en/wow/topic/20768997089'
 response = requests.get(url)
 html = response.content
 
-soup = BeautifulSoup(html)
-forum = soup.find('div', attrs={'class': 'Topic-content'})
-
-print forum.prettify()
+soup = BS(html , "lxml")
+len(soup.find_all('div', class_='TopicPost-bodyContent'))
