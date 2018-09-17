@@ -5,4 +5,6 @@ response = requests.get(url)
 html = response.content
 
 soup = BS(html , "lxml")
-len(soup.find_all('div', class_='TopicPost-bodyContent'))
+forum = soup.find_all('div', class_='TopicPost-bodyContent')
+
+print(forum)
