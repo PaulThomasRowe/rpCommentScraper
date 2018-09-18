@@ -4,12 +4,8 @@ url = 'https://us.battle.net/forums/en/wow/topic/20768997089'
 response = requests.get(url)
 html = response.content
 
-def num_appearances_of_tag(TopicPost-bodyContent, html):
-    soup = BS(html)
-    return len(soup.find_all(TopicPost-bodyContent)
+soup = BS(html , "lxml")
 
 
-
-soup = BS(html)
-forum = soup.find('div', attrs={'class': 'TopicPost-bodyContent'})
-print forum.prettify()
+for forum in soup.find_all('div', class_='TopicPost-bodyContent'):
+    print(forum.get_text())
