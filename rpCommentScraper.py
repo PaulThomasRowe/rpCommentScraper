@@ -38,6 +38,9 @@ for comment in forum:
 
 max=len(post)
 
-chosen = random.randint(1,max+1)
+chosen = random.randint(1,max)
 
-print(post[chosen])
+if max<=0:
+    print("No posts")
+else:
+    print(post[chosen])
